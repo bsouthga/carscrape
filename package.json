@@ -9,7 +9,8 @@
     "fast-csv": "^0.6.0",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
-    "request-promise": "^0.4.3"
+    "request-promise": "^0.4.3",
+    "yargs": "^3.26.0"
   },
   "devDependencies": {},
   "scripts": {
