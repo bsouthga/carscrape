@@ -33,7 +33,7 @@ you should see...
 ```
 Usage for ./scrape...
 
-  EXAMPLE:
+  EXAMPLE
 
     ./scrape -v vehicles.csv -l locations.csv -o out.csv
 
