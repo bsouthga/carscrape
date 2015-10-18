@@ -4,6 +4,13 @@
 
 [NodeJS](https://nodejs.org/en/) is required to run this script.
 
+Developer note:
+
+The javascript in this project is written using modern ES6/7 Syntax
+and therefore must be run/compiled with [BabelJS](https://babeljs.io/). No further
+effort is necessary though, as babel is included as an `npm` dependency, and
+the script utilizes `babel-node` to run the javascript.
+
 ### Installation
 
 After installing [NodeJS](https://nodejs.org/en/), clone this repository and
