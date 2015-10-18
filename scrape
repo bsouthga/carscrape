@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function run {
-  ./node_modules/.bin/babel-node ./lib/index.js \
+  ./node_modules/.bin/babel-node ./lib/scrape.js \
     --vehicles  $1 \
     --locations $2 \
     --csv $3
