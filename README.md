@@ -2,7 +2,9 @@
 
 ### Requirements
 
-[NodeJS](https://nodejs.org/en/) is required to run this script.
+[NodeJS](https://nodejs.org/en/) and a shell environment with bash is required to run this script.
+
+Windows users, try installing [cygwin](http://cygwin.com/install.html) or use [git bash](https://git-for-windows.github.io/)
 
 Developer note:
 
@@ -13,10 +15,16 @@ the script utilizes `babel-node` to run the javascript.
 
 ### Installation
 
-After installing [NodeJS](https://nodejs.org/en/), clone this repository and
-navigate to it's directory in your terminal.
+1. install [NodeJS](https://nodejs.org/en/)
 
-Next, run `npm install` to install the dependencies.
+2. Clone this repository by running (or download the zip file)...
+
+```shell
+git clone https://github.com/bsouthga/carscrape.git
+```
+3. Navigate to the project folder (`carscrape`) in your bash shell
+
+4. Run `npm install` to install the dependencies.
 
 ### Usage
 
