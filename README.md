@@ -1,4 +1,4 @@
-## Edmunds.com scraping script
+## Edmunds.com api access script
 
 ### Requirements
 
