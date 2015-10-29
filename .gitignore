@@ -1,3 +1,5 @@
 node_modules
 *.csv
+cities_test.csv
+vehicles_test.csv
 lib/credentials.json

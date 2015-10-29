@@ -29,7 +29,6 @@ Usage for scrape...
             \"client_secret\": \"ENTER YOUR SECRET KEY\"
           }
 
-
     -o : (optional) filename of output csv, if omitted, data will be output
          to file named 'results_(unix timestamp).csv'
 
@@ -40,8 +39,9 @@ Usage for scrape...
 VEHICLE_FILE=" "
 LOCATION_FILE=" "
 CREDENTIALS_FILE=" "
+DELAY=""
 
-while getopts ":v:l:c:o:" opt; do
+while getopts ":v:l:c:o:d:" opt; do
   case $opt in
     v) VEHICLE_FILE="""$OPTARG"""
     ;;
