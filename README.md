@@ -4,7 +4,9 @@
 
 [NodeJS](https://nodejs.org/en/) and a shell environment with bash is required to run this script.
 
-Windows users, try installing [cygwin](http://cygwin.com/install.html) or use [git bash](https://git-for-windows.github.io/)
+Mac users, terminal uses Bash, so you are good to go.
+
+Windows users, as windows does not come with a Bash shell, try installing [cygwin](http://cygwin.com/install.html) or use [git bash](https://git-for-windows.github.io/)
 
 Developer note:
 
