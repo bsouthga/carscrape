@@ -29,7 +29,16 @@ the script utilizes `babel-node` to run the javascript.
 To scrape a list of cars and locations, run the following command...
 
 ```shell
-./scrape -c cars.csv -l locations.csv
+./scrape -v vehicles.csv -l locations.csv -c credentials.json
+```
+
+Where `credentials.json` are your api credentials to the Edmunds api, of the format...
+
+```json
+{
+  "client_id": "ENTER YOUR SECRET ID",
+  "client_secret": "ENTER YOUR SECRET KEY"
+}
 ```
 
 This will produce an output csv file with a name something like `results_1444696434.csv`
