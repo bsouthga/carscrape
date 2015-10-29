@@ -18,7 +18,7 @@ the script utilizes `babel-node` to run the javascript.
 1. install [NodeJS](https://nodejs.org/en/)
 
 2. Clone this repository by running (or download the zip file)...
-    git clone https://github.com/bsouthga/carscrape.git
+    `git clone https://github.com/bsouthga/carscrape.git`
 
 3. Navigate to the project folder (`carscrape`) in your bash shell
 
