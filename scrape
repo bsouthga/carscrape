@@ -1,38 +1,47 @@
 #!/usr/bin/env bash
 
 function run {
-  ./node_modules/.bin/babel-node ./lib/scrape.js \
-    --vehicles  $1 \
-    --locations $2 \
-    --csv $3
+  ./node_modules/.bin/babel-node ./lib/collect.js \
+    --vehicles    $1 \
+    --locations   $2 \
+    --credentials $3 \
+    --csv         $4
 }
 
 function help {
   echo "
-  Usage for ./scrape...
+Usage for scrape...
 
-    EXAMPLE
+  EXAMPLE
 
-      ./scrape -v vehicles.csv -l locations.csv -o out.csv
+    ./scrape -v vehicles.csv -l locations.csv -c credentials.json -o out.csv
 
-    OPTIONS
+  OPTIONS
 
-      -v : csv file of vehicles to scrape, must contain 'Make' and 'Model' columns
-            additionally, vehicle make and model must appear on lookup on edmunds.com
+    -v : csv file of vehicles to scrape, must contain 'Make' and 'Model' columns
+          additionally, vehicle make and model must appear on lookup on edmunds.com
 
-      -l : csv file of locations to scrape, must contain 'ZIP'
+    -l : csv file of locations to scrape, must contain 'ZIP'
 
-      -o : (optional) filename of output csv, if omitted, data will be output
-           to file named 'results_(unix timestamp).csv'
+    -c : json file of credentials for api access, should be of the form...
+          {
+            \"client_id\": \"ENTER YOUR SECRET ID\",
+            \"client_secret\": \"ENTER YOUR SECRET KEY\"
+          }
 
-      -h : show this message
+
+    -o : (optional) filename of output csv, if omitted, data will be output
+         to file named 'results_(unix timestamp).csv'
+
+    -h : show this message
   "
 }
 
 VEHICLE_FILE=" "
 LOCATION_FILE=" "
+CREDENTIALS_FILE=" "
 
-while getopts ":v:l:o:" opt; do
+while getopts ":v:l:c:o:" opt; do
   case $opt in
     v) VEHICLE_FILE="""$OPTARG"""
     ;;
@@ -40,22 +49,40 @@ while getopts ":v:l:o:" opt; do
     ;;
     o) OUTPUT_FILE="""$OPTARG"""
     ;;
+    c) CREDENTIALS_FILE="""$OPTARG"""
+    ;;
     \?) help
     ;;
   esac
 done
 
+if [ "$(which npm)" == "" ]; then
+  echo "You need NodeJS installed to run this script. More info here: https://nodejs.org/en/"
+  exit 1
+fi
+
+if [ ! -f node_modules/.bin/babel-node ]; then
+  echo "You need to run 'npm install' before running this script."
+  exit 1
+fi
+
 if [ "$VEHICLE_FILE" == " " ]; then
   echo ""
-  echo "ERROR: Missing vehicle file... "
+  echo "Missing vehicle file, pass to script using '-v ./vehicles.csv'..."
   help
   exit 1
 fi
 
 if [ "$LOCATION_FILE" == " " ]; then
-  echo "Missing location file... "
+  echo "Missing location file, pass to script using '-l ./locations.csv'..."
   help
   exit 1
 fi
 
-run "$VEHICLE_FILE" "$LOCATION_FILE" "$OUTPUT_FILE"
+if [ "$CREDENTIALS_FILE" == " " ]; then
+  echo "Missing credentials file, pass to script using '-c ./credentials.json'... "
+  help
+  exit 1
+fi
+
+run "$VEHICLE_FILE" "$LOCATION_FILE" "$CREDENTIALS_FILE" "$OUTPUT_FILE"
