@@ -9,8 +9,9 @@ function run {
 }
 
 function help {
-  echo "
-Usage for scrape...
+  echo "Usage for ./scrape...
+
+  Edmunds.com api scraping script...
 
   EXAMPLE
 
@@ -34,7 +35,16 @@ Usage for scrape...
 
     -h : show this message
   "
+  exit 1
 }
+
+# common help requests
+if [ "$1" == "help" ]; then
+  help
+fi
+if [ "$1" == "--help" ]; then
+  help
+fi
 
 VEHICLE_FILE=" "
 LOCATION_FILE=" "
@@ -70,19 +80,16 @@ if [ "$VEHICLE_FILE" == " " ]; then
   echo ""
   echo "Missing vehicle file, pass to script using '-v ./vehicles.csv'..."
   help
-  exit 1
 fi
 
 if [ "$LOCATION_FILE" == " " ]; then
   echo "Missing location file, pass to script using '-l ./locations.csv'..."
   help
-  exit 1
 fi
 
 if [ "$CREDENTIALS_FILE" == " " ]; then
   echo "Missing credentials file, pass to script using '-c ./credentials.json'... "
   help
-  exit 1
 fi
 
 run "$VEHICLE_FILE" "$LOCATION_FILE" "$CREDENTIALS_FILE" "$OUTPUT_FILE"

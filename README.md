@@ -40,19 +40,27 @@ you should see...
 ```
 Usage for ./scrape...
 
-  EXAMPLE
+Edmunds.com api scraping script...
 
-    ./scrape -v vehicles.csv -l locations.csv -o out.csv
+EXAMPLE
 
-  OPTIONS
+  ./scrape -v vehicles.csv -l locations.csv -c credentials.json -o out.csv
 
-    -v : csv file of vehicles to scrape, must contain 'Make' and 'Model' columns
-          additionally, vehicle make and model must appear on lookup on edmunds.com
+OPTIONS
 
-    -l : csv file of locations to scrape, must contain 'ZIP'
+  -v : csv file of vehicles to scrape, must contain 'Make' and 'Model' columns
+        additionally, vehicle make and model must appear on lookup on edmunds.com
 
-    -o : (optional) filename of output csv, if omitted, data will be output
-         to file named 'results_(unix timestamp).csv'
+  -l : csv file of locations to scrape, must contain 'ZIP'
 
-    -h : show this message
+  -c : json file of credentials for api access, should be of the form...
+        {
+          \"client_id\": \"ENTER YOUR SECRET ID\",
+          \"client_secret\": \"ENTER YOUR SECRET KEY\"
+        }
+
+  -o : (optional) filename of output csv, if omitted, data will be output
+       to file named 'results_(unix timestamp).csv'
+
+  -h : show this message
 ```
